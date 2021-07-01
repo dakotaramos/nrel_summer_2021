@@ -499,15 +499,15 @@ components:
               cylindrical: True
 
             - name: anchor1
-              location: [837.8, 0.0, -200.0]
+              location: [837.6, 3.14159265, -200.0] #3.14159265 = 180deg
               cylindrical: True
 
             - name: anchor2
-              location: [837.8, 2.0943951023931953, -200.0] # 120deg
+              location: [837.6, 1.0471976, -200.0] #1.0471975 = 60 deg
               cylindrical: True
 
             - name: anchor3
-              location: [837.8, 4.1887902047863905, -200.0] # 240deg
+              location: [837.6, -1.0471976, -200.0] #-1.0471975 = -60 deg 
               cylindrical: True
 
         members:
@@ -565,7 +565,7 @@ components:
                 ballasts:
                     - variable_flag: False
                       material: slurry
-                      volume: 169.33
+                      volume: 169.333
                       grid: [0.0, 0.05]
                     - variable_flag: True
                       grid: [0.05, 0.2]
@@ -654,6 +654,11 @@ components:
               Ca: 1.0
               Cd: 0.8
               outer_shape: &pontlow_out
+                #shape: polygonal
+                #side_lengths1: [12.5, 7, 12.5, 7]
+                #side_lengths2: [12.5, 7, 12.5, 7]
+                #rotation: 0.0
+                #angles: [1.5708, 1.5708, 1.5708, 1.5708]
                 shape: circular
                 outer_diameter:
                     grid: [0.0, 1.0]
@@ -1135,7 +1140,7 @@ environment:
     water_dyn_viscosity: 1.3351e-3
     soil_shear_modulus: 140e6
     soil_poisson: 0.4
-    water_depth: 30.0
+    water_depth: 200.0
     significant_wave_height: 4.52
     significant_wave_period: 9.45
 
