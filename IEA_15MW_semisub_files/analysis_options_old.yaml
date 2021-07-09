@@ -1,7 +1,6 @@
 general:
     folder_output: outputs
     fname_output: refturb_output
-
 design_variables:
     blade:
         aero_shape:
@@ -55,6 +54,7 @@ design_variables:
             flag: False         # Flag to optimize the rotor tip speed ratio
             min_gain: 0.9     # Nondimensional lower bound
             max_gain: 1.1     # Nondimensional upper bound
+
     tower:
         outer_diameter:
             flag: False
@@ -64,73 +64,139 @@ design_variables:
             flag: False
             lower_bound: 4.e-3
             upper_bound: 2.e-1
+
     floating:
         joints:
-            flag: False
-            z_coordinate:
-                - names: [col1_keel, col2_keel, col3_keel]
-                  lower_bound: -25.0
-                  upper_bound: -15.0
-                - names: [main_keel]
-                  lower_bound: -25.0
-                  upper_bound: -15.0
-            r_coordinate:
-                - names: [col1_keel, col1_freeboard, col2_keel, col2_freeboard, col3_keel, col3_freeboard]
-                  lower_bound: 45
-                  upper_bound: 60
+            draft:
+                # Adjusts the z-coordinate of the listed joints
+                linked_joints:
+                    # This will set the same z-value for all of the joints listed in the same names entry
+                    - names: [col1_keel, col2_keel, col3_keel]
+                      flag: True
+                      lower_bound: -100.0
+                      upper_bound: -5.0
+                independent_joints:
+                    # This will adjust the z-coordinate of the joints separately
+                    - name: maincol_keel
+                      flag: True
+                      lower_bound: -100.0
+                      upper_bound: -5.0
+            column_spacing:
+                # Adjusts the x/y-coordinate of the listed joints to be a desired radius from (0,0)
+                linked_joints:
+                    # This will set the x,y-value for all of the joints listed in the same names entry at constant angle relative to (0,0)
+                    - names: [col1_keel, col1_freeboard, col1_fairlead, col2_keel, col2_freeboard, col2_fairlead, col3_keel, col3_freeboard, col3_fairlead]
+                      flag: True
+                      lower_bound: 5.0
+                      upper_bound: 75.0
+            fairlead_depth:
+                # Adjusts the z-coordinate of the listed joints
+                linked_joints:
+                    # This will set the same z-value for all of the joints listed in the same names entry.
+                    # Instead of operating in absolute z-space, the coordinate value is non-dimensional along the member axis (0=joint1)
+                    - names: [col1_fairlead, col2_fairlead, col3_fairlead]
+                      flag: True
+                      lower_bound: 0.0
+                      upper_bound: 1.0
+            pontoon_depth:
+                # Adjusts the z-coordinate of the listed joints
+                linked_joints:
+                    # This will set the same z-value for all of the joints listed in the same names entry.
+                    # Instead of operating in absolute z-space, the coordinate value is non-dimensional along the member axis (0=joint1)
+                    - names: [col1_pontoon_lower, col2_pontoon_lower, col3_pontoon_lower]
+                      flag: True
+                      lower_bound: 0.0
+                      upper_bound: 1.0
+                    - names: [col1_pontoon_upper, col2_pontoon_upper, col3_pontoon_upper]
+                      flag: True
+                      lower_bound: 0.0
+                      upper_bound: 1.0
         members:
-            flag: False
-            groups:
-                - names: [main_column]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-
-                - names: [column1, column2, column3]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-                  ballast:
+            diameter:
+                linked_members:
+                    # This will set the same diameter profile for all of the members listed in the same names entry
+                    - names: [col1, col2, col3]
+                      flag: True
                       lower_bound: 1.0
-                      upper_bound: 1e8
-                #   axial_joints:
-                #       - names: [col1_fairlead, col2_fairlead, col3_fairlead]
-                #         lower_bound: 0.0
-                #         upper_bound: 1.0
-
-                - names: [Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3]
-                  diameter:
-                      lower_bound: 0.1
-                      upper_bound: 2
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-
-                - names: [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-                #   ballast:
-                #       lower_bound: 1.0
-                #       upper_bound: 1e8
+                      upper_bound: 20.0
+                    - names: [pontoon_lower12, pontoon_lower23, pontoon_lower31]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 5.0
+                    - names: [pontoon_upper12, pontoon_upper23, pontoon_upper31]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 5.0
+                independent_members:
+                    # This will set the same ballast for all of the members listed in the same names entry
+                    - name: main_col
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 20.0
+            thickness:
+                linked_members:
+                    # This will set the same thickness profile for all of the members listed in the same names entry
+                    - names: [col1, col2, col3]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 20.0
+                    - names: [pontoon_lower12, pontoon_lower23, pontoon_lower31]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 5.0
+                    - names: [pontoon_upper12, pontoon_upper23, pontoon_upper31]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 5.0
+                independent_members:
+                    # This will set the same ballast for all of the members listed in the same names entry
+                    - name: main_col
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 20.0
+            ballast:
+                linked_members:
+                    # This will set the same ballast for all of the members listed in the same names entry
+                    - names: [col1, col2, col3]
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 1.e+6
+                independent_members:
+                    # This will set the same ballast for all of the members listed in the same names entry
+                    - name: main_col
+                      flag: True
+                      lower_bound: 1.0
+                      upper_bound: 1.e+6
     mooring:
-        line_length:
-            flag: False
-            lower_bound: 250.0
-            upper_bound: 2000.0
-        line_diameter:
-            flag: False
-            lower_bound: 0.04
-            upper_bound: 0.2
+            anchor_radius:
+                # This adjusts the radius of all anchor nodes from (0,0)
+                flag: False
+                lower_bound: 10.0
+                upper_bound: 1000.0
+            line_length:
+                # Adjust the unstretched line length of the mooring segments
+                linked_lines:
+                    # This will set the same line length for all segments listed in the same names entry
+                    - names: [line1, line2, line3]
+                      flag: False
+                      lower_bound: 100.0
+                      upper_bound: 2000.0
+                    - names: [bridle11, bridle12, bridle21, bridle22, bridle31, bridle32]
+                      flag: False
+                      lower_bound: 100.0
+                      upper_bound: 2000.0
+            line_diameter:
+                # Adjust the diameter of the mooring segments
+                linked_lines:
+                    # This will set the same diameter for all segments listed in the same names entry
+                    - names: [line1, line2, line3]
+                      flag: False
+                      lower_bound: 0.1
+                      upper_bound: 2.0
+                    - names: [bridle11, bridle12, bridle21, bridle22, bridle31, bridle32]
+                      flag: False
+                      lower_bound: 0.1
+                      upper_bound: 2.0
     hub:
         cone:
             flag: False
@@ -140,6 +206,7 @@ design_variables:
             flag: False
             lower_bound: 3.0
             upper_bound: 15.0
+
     drivetrain:
         uptilt:
             flag: False
@@ -198,26 +265,7 @@ design_variables:
             lower_bound: 0.004
             upper_bound: 0.5
 
-merit_figure: inverse_design
-
-inverse_design:
-    val0:
-        name: floatingse.platform_hull_mass
-        ref_value: 3.914e6
-    val1:
-        name: floatingse.variable_ballast_mass
-        ref_value: 1.13e7
-    val2:
-        name: floatingse.platform_center_of_buoyancy
-        ref_value: -13.63
-        idx: 2
-    val3:
-        name: floatingse.platform_center_of_mass
-        ref_value: -14.94
-        idx: 2
-    val4:
-        name: floatingse.platform_displacement
-        ref_value: 20206.00
+merit_figure: platform_mass
 
 constraints:
     blade:
@@ -300,51 +348,44 @@ constraints:
             lower_bound: 2.0
         ecc:
             flag: False
-    floating: # floating platform and mooring constraints
+    floating:
         operational_heel:
             upper_bound: 0.08726646259971647 # 5 deg
         survival_heel:
             upper_bound: 0.17453292519943295 # 10 deg
         max_surge:
-            flag: False
+            flag: false
             upper_bound: 0.1
         buoyancy:
-            flag: False
+            flag: True
         fixed_ballast_capacity:
-            flag: False
+            flag: True
         variable_ballast_capacity:
-            flag: False
+            flag: True
         metacentric_height:
-            flag: False
+            flag: True
         freeboard_margin:
-            flag: False
+            flag: false
         draft_margin:
-            flag: False
+            flag: false
         fairlead_depth:
-            flag: False
+            flag: false
         mooring_surge:
-            flag: False
+            flag: false
         mooring_heel:
-            flag: False
+            flag: false
         mooring_tension:
-            flag: False
+            flag: false
         mooring_length:
-            flag: False
-        stress:
-            flag: False
-        shell_buckling:
-            flag: False
-        global_buckling:
-            flag: False
-
+            flag: false
 driver:
     optimization:
-        flag: False         # Flag to enable optimization
-        tol: 1.e-4          # Optimality tolerance
+        flag: True         # Flag to enable optimization
+        tol: 1.e-6          # Optimality tolerance
         max_major_iter: 10  # Maximum number of major design iterations (SNOPT)
         max_minor_iter: 100 # Maximum number of minor design iterations (SNOPT)
         max_iter: 100         # Maximum number of iterations (SLSQP)
-        solver: SNOPT       # Optimization solver. Other options are 'SLSQP' - 'CONMIN'
+        solver: SLSQP       # Optimization solver. Other options are 'SLSQP' - 'CONMIN'
         step_size: 1.e-6    # Step size for finite differencing
         form: forward       # Finite differencing mode, either forward or central
         debug_print: True

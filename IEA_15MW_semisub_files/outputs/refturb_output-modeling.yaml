@@ -1,0 +1,194 @@
+General: {verbosity: false}
+WISDEM:
+    RotorSE:
+        flag: false
+        spar_cap_ss: Spar_Cap_SS
+        spar_cap_ps: Spar_Cap_PS
+        n_aoa: 200
+        n_xy: 200
+        n_span: 30
+        n_pc: 20
+        n_pc_spline: 200
+        n_pitch_perf_surfaces: 20
+        min_pitch_perf_surfaces: -5.0
+        max_pitch_perf_surfaces: 30.0
+        n_tsr_perf_surfaces: 20
+        min_tsr_perf_surfaces: 2.0
+        max_tsr_perf_surfaces: 12.0
+        n_U_perf_surfaces: 1
+        regulation_reg_III: true
+        peak_thrust_shaving: false
+        thrust_shaving_coeff: 1.0
+        fix_pitch_regI12: false
+        te_ss: none
+        te_ps: none
+        gamma_freq: 1.1
+        gust_std: 3.0
+        root_fastener_s_f: 2.5
+        hubloss: true
+        tiploss: true
+        wakerotation: true
+        usecd: true
+        n_sector: 4
+        inn_af: false
+        inn_af_max_t/c: 0.4
+        inn_af_min_t/c: 0.15
+        n_af: 8
+        aoa: [-3.141592653589793, -3.0892327760299634, -3.036872898470133, -2.9845130209103035, -2.9321531433504737, -2.8797932657906435, -2.827433388230814, -2.775073510670984, -2.722713633111154, -2.670353755551324, -2.617993877991494, -2.5656340004316642, -2.5132741228718345, -2.4609142453120043, -2.4085543677521746, -2.356194490192345, -2.3038346126325147, -2.251474735072685, -2.199114857512855, -2.146754979953025, -2.0943951023931953, -2.0420352248333655, -1.9896753472735356, -1.9373154697137056, -1.8849555921538759, -1.832595714594046, -1.780235837034216, -1.727875959474386, -1.6755160819145563, -1.6231562043547263, -1.5707963267948963, -1.5184364492350666, -1.4660765716752366, -1.4137166941154067, -1.361356816555577, -1.308996938995747, -1.256637061435917, -1.2042771838760873, -1.1519173063162573, -1.0995574287564276, -1.0471975511965974, -0.9948376736367677, -0.9424777960769379, -0.8901179185171078, -0.837758040957278, -0.7853981633974483, -0.7330382858376181, -0.6806784082777884, -0.6283185307179586, -0.5759586531581284, -0.5235987755982988, -0.513021022555909, -0.502443269513519, -0.4918655164711292, -0.4812877634287393, -0.4707100103863494, -0.46013225734395957, -0.4495545043015697, -0.4389767512591798, -0.42839899821678995, -0.41782124517440006, -0.40724349213201017, -0.39666573908962033, -0.38608798604723044, -0.37551023300484054, -0.3649324799624507, -0.3543547269200608, -0.3437769738776709, -0.3331992208352811, -0.3226214677928912, -0.3120437147505013, -0.30146596170811146, -0.29088820866572157, -0.2803104556233317, -0.26973270258094184, -0.25915494953855195, -0.24857719649616206, -0.23799944345377216, -0.22742169041138233, -0.21684393736899243, -0.20626618432660254, -0.1956884312842127, -0.1851106782418228, -0.17453292519943292, -0.16395517215704308, -0.1533774191146532, -0.1427996660722633, -0.13222191302987346, -0.12164415998748357, -0.11106640694509368, -0.10048865390270378, -0.08991090086031395, -0.07933314781792405, -0.06875539477553416, -0.058177641733144325, -0.04759988869075443, -0.03702213564836454, -0.026444382605974703, -0.015866629563584866, -0.0052888765211949185, 0.0052888765211949185, 0.015866629563584866, 0.026444382605974703, 0.03702213564836454, 0.04759988869075449, 0.058177641733144325, 0.06875539477553416, 0.07933314781792411, 0.08991090086031395, 0.10048865390270378, 0.11106640694509373, 0.12164415998748357, 0.1322219130298734, 0.14279966607226335, 0.1533774191146532, 0.16395517215704303, 0.17453292519943298, 0.1851106782418228, 0.19568843128421265, 0.2062661843266026, 0.21684393736899243, 0.22742169041138227, 0.23799944345377222, 0.24857719649616206, 0.2591549495385519, 0.26973270258094184, 0.2803104556233317, 0.2908882086657215, 0.30146596170811146, 0.3120437147505013, 0.32262146779289125, 0.3331992208352811, 0.3437769738776709, 0.35435472692006087, 0.3649324799624507, 0.37551023300484054, 0.3860879860472305, 0.39666573908962033, 0.40724349213201017, 0.4178212451744001, 0.42839899821678995, 0.4389767512591798, 0.44955450430156974, 0.46013225734395957, 0.4707100103863494, 0.48128776342873925, 0.4918655164711291, 0.5024432695135191, 0.513021022555909, 0.5235987755982988, 0.5759586531581287, 0.6283185307179586, 0.6806784082777885, 0.7330382858376183, 0.7853981633974483, 0.8377580409572781, 0.890117918517108, 0.9424777960769379, 0.9948376736367679, 1.0471975511965979, 1.0995574287564276, 1.1519173063162573, 1.2042771838760875, 1.2566370614359172, 1.3089969389957472, 1.3613568165555772, 1.413716694115407, 1.4660765716752369, 1.5184364492350668, 1.5707963267948966, 1.6231562043547263, 1.6755160819145565, 1.7278759594743862, 1.780235837034216, 1.8325957145940461, 1.8849555921538759, 1.937315469713706, 1.9896753472735358, 2.0420352248333655, 2.0943951023931957, 2.1467549799530254, 2.199114857512855, 2.2514747350726854, 2.303834612632515, 2.356194490192345, 2.408554367752175, 2.4609142453120048, 2.5132741228718345, 2.5656340004316642, 2.6179938779914944, 2.670353755551324, 2.722713633111154, 2.775073510670984, 2.827433388230814, 2.8797932657906435, 2.9321531433504737, 2.9845130209103035, 3.036872898470133, 3.0892327760299634, 3.141592653589793]
+        AFTabMod: 1
+        n_Re: 3
+        n_tab: 1
+        af_used: [circular, circular, SNL-FFA-W3-500, FFA-W3-360, FFA-W3-330blend, FFA-W3-301, FFA-W3-270blend, FFA-W3-241, FFA-W3-211, FFA-W3-211]
+    DriveSE:
+        flag: false
+        model_generator: false
+        gamma_f: 1.35
+        gamma_m: 1.3
+        gamma_n: 1.0
+        hub: {hub_gamma: 2.0, spinner_gamma: 1.5}
+    TowerSE:
+        flag: true
+        nLC: 1
+        wind: PowerWind
+        gamma_f: 1.35
+        gamma_m: 1.3
+        gamma_n: 1.0
+        gamma_b: 1.1
+        gamma_freq: 1.1
+        gamma_fatigue: 1.0
+        buckling_method: dnvgl
+        buckling_length: 10.0
+        frame3dd: &id001 {shear: true, geom: true, modal: true, tol: 1e-09}
+        soil_springs: false
+        gravity_foundation: false
+        n_height_tower: 20
+        n_layers_tower: 1
+        n_height: 20
+        n_height_monopile: 0
+        n_layers_monopile: 0
+    FloatingSE:
+        flag: true
+        symmetric_moorings: true
+        gamma_f: 1.35
+        gamma_m: 1.3
+        gamma_n: 1.0
+        gamma_b: 1.1
+        gamma_fatigue: 1.755
+        frame3dd: *id001
+        gamma_freq: 1.1
+    BOS: {flag: false}
+    Loading:
+        mass: 956762.41365937
+        center_of_mass: [-6.55919605, -0.098772, 4.52551515]
+        moment_of_inertia: [384130521.0, 259670608.0, 241112120.0, 786.100051, 14377185.7, 170976.443]
+        loads:
+           -  force: [3732455.03902768, 22583.93220077, -6907171.29266032]
+              moment: [-1112777.68087106, -11500138.21851768, 9547667.10956592]
+              velocity: 19.71393401
+    GeneratorSE: {type: pmsg_outer}
+flags: {blade: false, hub: false, nacelle: false, tower: true, monopile: false, floating_platform: true, mooring: true, RNA: false, assembly: true, components: true, airfoils: true, materials: true, control: true, environment: true, bos: false, costs: true, generator: false, floating: true, offshore: true}
+materials: {n_mat: 11}
+floating:
+    joints:
+        n_joints: 11
+        name: [main_keel, main_freeboard, col1_keel, col1_freeboard, col2_keel, col2_freeboard, col3_keel, col3_freeboard, anchor1, anchor2, anchor3]
+        transition: [false, true, false, false, false, false, false, false, false, false, false]
+        cylindrical: [false, false, true, true, true, true, true, true, true, true, true]
+        name2idx: {main_keel: 0, main_freeboard: 1, col1_keel: 2, col1_freeboard: 3, col2_keel: 4, col2_freeboard: 5, col3_keel: 6, col3_freeboard: 7, anchor1: 8, anchor2: 9, anchor3: 10, main_upper_pontoon: 11, main_lower_pontoon: 12, col1_upper_pontoon: 13, col1_lower_pontoon: 14, col1_fairlead: 15, col2_upper_pontoon: 16, col2_lower_pontoon: 17, col2_fairlead: 18, col3_upper_pontoon: 19, col3_lower_pontoon: 20, col3_fairlead: 21}
+        design_variable_data:
+           -  indices: [2, 4, 6]
+              dimension: 2
+           -  indices: [0]
+              dimension: 2
+           -  indices: [2, 3, 4, 5, 6, 7]
+              dimension: 0
+    transition_joint: 1
+    members:
+        n_members: 10
+        name: [main_column, column1, column2, column3, Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3, Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
+        joint1: [main_keel, col1_keel, col2_keel, col3_keel, main_upper_pontoon, main_upper_pontoon, main_upper_pontoon, main_lower_pontoon, main_lower_pontoon, main_lower_pontoon]
+        joint2: [main_freeboard, col1_freeboard, col2_freeboard, col3_freeboard, col1_upper_pontoon, col2_upper_pontoon, col3_upper_pontoon, col1_lower_pontoon, col2_lower_pontoon, col3_lower_pontoon]
+        outer_shape: [circular, circular, circular, circular, circular, circular, circular, circular, circular, circular]
+        n_height: [4, 7, 7, 7, 2, 2, 2, 2, 2, 2]
+        n_layers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        n_ballasts: [0, 2, 2, 2, 0, 0, 0, 1, 1, 1]
+        n_bulkheads: [2, 4, 4, 4, 2, 2, 2, 2, 2, 2]
+        n_axial_joints: [2, 3, 3, 3, 0, 0, 0, 0, 0, 0]
+        layer_mat_member_main_column: [steel]
+        ballast_flag_member_main_column: []
+        ballast_mat_member_main_column: []
+        axial_joint_name_member_main_column: [main_upper_pontoon, main_lower_pontoon]
+        grid_member_main_column: [0.0, 0.1, 0.987, 1.0]
+        layer_mat_member_column1: [steel]
+        ballast_flag_member_column1: [false, true]
+        ballast_mat_member_column1: [slurry, '']
+        axial_joint_name_member_column1: [col1_upper_pontoon, col1_lower_pontoon, col1_fairlead]
+        grid_member_column1: [0.0, 0.05, 0.1, 0.1714, 0.5, 0.987, 1.0]
+        layer_mat_member_column2: [steel]
+        ballast_flag_member_column2: [false, true]
+        ballast_mat_member_column2: [slurry, '']
+        axial_joint_name_member_column2: [col2_upper_pontoon, col2_lower_pontoon, col2_fairlead]
+        grid_member_column2: [0.0, 0.05, 0.1, 0.1714, 0.5, 0.987, 1.0]
+        layer_mat_member_column3: [steel]
+        ballast_flag_member_column3: [false, true]
+        ballast_mat_member_column3: [slurry, '']
+        axial_joint_name_member_column3: [col3_upper_pontoon, col3_lower_pontoon, col3_fairlead]
+        grid_member_column3: [0.0, 0.05, 0.1, 0.1714, 0.5, 0.987, 1.0]
+        layer_mat_member_Y_pontoon_upper1: [steel]
+        ballast_flag_member_Y_pontoon_upper1: []
+        ballast_mat_member_Y_pontoon_upper1: []
+        grid_member_Y_pontoon_upper1: [0.0, 1.0]
+        layer_mat_member_Y_pontoon_upper2: [steel]
+        ballast_flag_member_Y_pontoon_upper2: []
+        ballast_mat_member_Y_pontoon_upper2: []
+        grid_member_Y_pontoon_upper2: [0.0, 1.0]
+        layer_mat_member_Y_pontoon_upper3: [steel]
+        ballast_flag_member_Y_pontoon_upper3: []
+        ballast_mat_member_Y_pontoon_upper3: []
+        grid_member_Y_pontoon_upper3: [0.0, 1.0]
+        layer_mat_member_Y_pontoon_lower1: [steel]
+        ballast_flag_member_Y_pontoon_lower1: [true]
+        ballast_mat_member_Y_pontoon_lower1: ['']
+        grid_member_Y_pontoon_lower1: [0.0, 1.0]
+        layer_mat_member_Y_pontoon_lower2: [steel]
+        ballast_flag_member_Y_pontoon_lower2: [true]
+        ballast_mat_member_Y_pontoon_lower2: ['']
+        grid_member_Y_pontoon_lower2: [0.0, 1.0]
+        layer_mat_member_Y_pontoon_lower3: [steel]
+        ballast_flag_member_Y_pontoon_lower3: [true]
+        ballast_mat_member_Y_pontoon_lower3: ['']
+        grid_member_Y_pontoon_lower3: [0.0, 1.0]
+        linked_members:
+           -  [main_column]
+           -  [column1, column2, column3]
+           -  [Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3]
+           -  [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
+        name2idx: {main_column: 0, column1: 1, column2: 1, column3: 1, Y_pontoon_upper1: 2, Y_pontoon_upper2: 2, Y_pontoon_upper3: 2, Y_pontoon_lower1: 3, Y_pontoon_lower2: 3, Y_pontoon_lower3: 3}
+    tower:
+        n_ballasts: [0]
+        n_bulkheads: [0]
+        n_axial_joints: [0]
+        n_height: [20]
+        n_layers: [1]
+mooring:
+    symmetric: true
+    n_nodes: 6
+    n_lines: 3
+    n_anchors: 3
+    n_line_types: 1
+    n_anchor_types: 1
+    node_type: [fixed, fixed, fixed, vessel, vessel, vessel]
+    node_names: [line1_anchor, line2_anchor, line3_anchor, line1_vessel, line2_vessel, line3_vessel]
+    anchor_type: [drag_embedment, drag_embedment, drag_embedment, none, none, none]
+    fairlead_type: [rigid, rigid, rigid, rigid, rigid, rigid]
+    node1: [line1_anchor, line2_anchor, line3_anchor]
+    node2: [line1_vessel, line2_vessel, line3_vessel]
+    line_type: [main, main, main]
+    line_material: [chain, chain, chain]
+    line_anchor: [drag_embedment, drag_embedment, drag_embedment]
+    line_type_name: [main]
+    line_type_type: [chain]
+    anchor_type_name: [drag_embedment]
+    anchor_type_type: [drag_embedment]
+    n_attach: 3
+assembly: {number_of_blades: 3}

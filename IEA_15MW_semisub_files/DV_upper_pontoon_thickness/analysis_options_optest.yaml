@@ -1,7 +1,7 @@
 general:
     folder_output: outputs
     fname_output: refturb_output
-
+    
 design_variables:
     blade:
         aero_shape:
@@ -66,7 +66,7 @@ design_variables:
             upper_bound: 2.e-1
     floating:
         joints:
-            flag: False
+            flag: True
             z_coordinate:
                 - names: [col1_keel, col2_keel, col3_keel]
                   lower_bound: -25.0
@@ -79,7 +79,7 @@ design_variables:
                   lower_bound: 45
                   upper_bound: 60
         members:
-            flag: False
+            flag: True
             groups:
                 - names: [main_column]
                   diameter:
@@ -112,13 +112,13 @@ design_variables:
                       lower_bound: 0.01
                       upper_bound: 0.2
 
-                - names: [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
+                # - names: [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
+                #   diameter:
+                #       lower_bound: 5.0
+                #       upper_bound: 15.0
+                #   thickness:
+                #       lower_bound: 0.01
+                #       upper_bound: 0.2
                 #   ballast:
                 #       lower_bound: 1.0
                 #       upper_bound: 1e8
@@ -198,26 +198,26 @@ design_variables:
             lower_bound: 0.004
             upper_bound: 0.5
 
-merit_figure: inverse_design
+merit_figure: platform_mass
 
 inverse_design:
     val0:
         name: floatingse.platform_hull_mass
         ref_value: 3.914e6
-    val1:
-        name: floatingse.variable_ballast_mass
-        ref_value: 1.13e7
-    val2:
-        name: floatingse.platform_center_of_buoyancy
-        ref_value: -13.63
-        idx: 2
-    val3:
-        name: floatingse.platform_center_of_mass
-        ref_value: -14.94
-        idx: 2
-    val4:
-        name: floatingse.platform_displacement
-        ref_value: 20206.00
+    # val1:
+    #     name: floatingse.variable_ballast_mass
+    #     ref_value: 1.13e7
+    # val2:
+    #     name: floatingse.platform_center_of_buoyancy
+    #     ref_value: -13.63
+    #     idx: 2
+    # val3:
+    #     name: floatingse.platform_center_of_mass
+    #     ref_value: -14.94
+    #     idx: 2
+    # val4:
+    #     name: floatingse.platform_displacement
+    #     ref_value: 20206.00
 
 constraints:
     blade:
@@ -306,40 +306,40 @@ constraints:
         survival_heel:
             upper_bound: 0.17453292519943295 # 10 deg
         max_surge:
-            flag: False
+            flag: True
             upper_bound: 0.1
         buoyancy:
-            flag: False
+            flag: True
         fixed_ballast_capacity:
-            flag: False
+            flag: True
         variable_ballast_capacity:
-            flag: False
+            flag: True
         metacentric_height:
-            flag: False
+            flag: True
         freeboard_margin:
-            flag: False
+            flag: True
         draft_margin:
-            flag: False
+            flag: True
         fairlead_depth:
-            flag: False
+            flag: True
         mooring_surge:
-            flag: False
+            flag: True
         mooring_heel:
-            flag: False
+            flag: True
         mooring_tension:
-            flag: False
+            flag: True
         mooring_length:
-            flag: False
+            flag: True
         stress:
             flag: False
         shell_buckling:
-            flag: False
+            flag: True
         global_buckling:
             flag: False
 
 driver:
     optimization:
-        flag: False         # Flag to enable optimization
+        flag: True         # Flag to enable optimization
         tol: 1.e-4          # Optimality tolerance
         max_major_iter: 10  # Maximum number of major design iterations (SNOPT)
         max_minor_iter: 100 # Maximum number of minor design iterations (SNOPT)

@@ -324,7 +324,6 @@ components:
                   fiber_orientation:
                       values: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
                       grid: [0.1, 0.125, 0.15, 0.1690340633511322, 0.18806812670226436, 0.20710219005339656, 0.22613625340452875, 0.24517031675566095, 0.2660887252285566, 0.2870071337014522, 0.30792554217434787, 0.3288439506472435, 0.350911029806978, 0.3729781089667125, 0.39504518812644707, 0.41711226728618156, 0.4391793464459161, 0.45887775857841995, 0.47857617071092373, 0.49827458284342757, 0.5179729949759314, 0.5376714071084352, 0.5577786570700229, 0.5778859070316106, 0.5979931569931983, 0.618100406954786, 0.6382076569163737, 0.657284256252832, 0.6763608555892903, 0.6954374549257486, 0.7145140542622068, 0.7335906535986652, 0.7526672529351234, 0.7717438522715817, 0.8, 0.8187500000000001, 0.8375, 0.85625, 0.875, 0.89375, 0.9125, 0.9312499999999999, 0.95]
-
     hub:
         diameter: 7.94
         cone_angle: 0.06981317007977318 # 4 deg
@@ -437,7 +436,6 @@ components:
             C_Fe: 0.556
             C_Fes: 0.50139
             C_PM: 50.0
-
     tower:
         outer_shape_bem:
             reference_axis: &ref_axis_tower
@@ -469,47 +467,36 @@ components:
         joints:
             - name: main_keel
               location: [0.0, 0.0, -20.0]
-
             - name: main_freeboard
               location: [0.0, 0.0, 15.0]
               transition: True
-
             - name: col1_keel
               location: [51.75, 3.14159265, -20.0] #3.14159265 = 180deg
               cylindrical: True
-
             - name: col1_freeboard
-              location: [51.75, 3.14159265, 15.0] # 3.14159265 = 180deg
+              location: [51.75, 3.14159265, 15.0] 
               cylindrical: True
-
             - name: col2_keel
               location: [51.75, 1.0471976, -20.0] #1.0471975 = 60 deg
               cylindrical: True
-
             - name: col2_freeboard
               location: [51.75, 1.0471975, 15.0]
               cylindrical: True
-
             - name: col3_keel
               location: [51.75, -1.0471976, -20.0] #-1.0471975 = -60 deg
               cylindrical: True
-
             - name: col3_freeboard
-              location: [51.75, -1.0471976, 15.0] #-1.0471975 = -60 deg
+              location: [51.75, -1.0471976, 15.0] 
               cylindrical: True
-
             - name: anchor1
               location: [837.6, 3.14159265, -200.0] #3.14159265 = 180deg
               cylindrical: True
-
             - name: anchor2
               location: [837.6, 1.0471976, -200.0] #1.0471975 = 60 deg
               cylindrical: True
-
             - name: anchor3
               location: [837.6, -1.0471976, -200.0] #-1.0471975 = -60 deg 
               cylindrical: True
-
         members:
             - name: main_column
               joint1: main_keel
@@ -536,10 +523,8 @@ components:
               axial_joints:
                 - name: main_upper_pontoon
                   grid: 0.987
-
                 - name: main_lower_pontoon
                   grid: 0.1
-
             - name: column1
               joint1: col1_keel
               joint2: col1_freeboard
@@ -568,17 +553,14 @@ components:
                       volume: 169.333
                       grid: [0.0, 0.05]
                     - variable_flag: True
-                      grid: [0.05, 0.2]
+                      grid: [0.05, 0.5]
               axial_joints:
                 - name: col1_upper_pontoon
                   grid: 0.987
-
                 - name: col1_lower_pontoon
                   grid: 0.1
-
                 - name: col1_fairlead
                   grid: 0.1714
-
             - name: column2
               joint1: col2_keel
               joint2: col2_freeboard
@@ -589,13 +571,10 @@ components:
               axial_joints:
                 - name: col2_upper_pontoon
                   grid: 0.987
-
                 - name: col2_lower_pontoon
                   grid: 0.1
-
                 - name: col2_fairlead
                   grid: 0.1714
-
             - name: column3
               joint1: col3_keel
               joint2: col3_freeboard
@@ -606,14 +585,10 @@ components:
               axial_joints:
                 - name: col3_upper_pontoon
                   grid: 0.987
-
                 - name: col3_lower_pontoon
                   grid: 0.1
-
                 - name: col3_fairlead
                   grid: 0.1714
-
-
             - name: Y_pontoon_upper1
               joint1: main_upper_pontoon
               joint2: col1_upper_pontoon
@@ -631,7 +606,6 @@ components:
                       thickness:
                         grid: [0.0, 1.0]
                         values: [0.02, 0.02]
-
             - name: Y_pontoon_upper2
               joint1: main_upper_pontoon
               joint2: col2_upper_pontoon
@@ -639,7 +613,6 @@ components:
               Cd: 0.8
               outer_shape: *pontup_out
               internal_structure: *pontup_int
-
             - name: Y_pontoon_upper3
               joint1: main_upper_pontoon
               joint2: col3_upper_pontoon
@@ -647,24 +620,17 @@ components:
               Cd: 0.8
               outer_shape: *pontup_out
               internal_structure: *pontup_int
-
             - name: Y_pontoon_lower1
               joint1: main_lower_pontoon
               joint2: col1_lower_pontoon
               Ca: 1.0
               Cd: 0.8
               outer_shape: &pontlow_out
-                #shape: polygonal
-                #side_lengths1: [12.5, 7, 12.5, 7]
-                #side_lengths2: [12.5, 7, 12.5, 7]
-                #rotation: 0.0
-                #angles: [1.5708, 1.5708, 1.5708, 1.5708]
                 shape: circular
                 outer_diameter:
                     grid: [0.0, 1.0]
                     values: [9.6148, 9.6148] #equates displacement not circle: [12.5, 12.5]
-              internal_structure: &pontlow_int
-                  # Probably needs longitudinal stiffeners
+              internal_structure: &pontlow_int #Probably needs longitudinal stiffeners
                 layers:
                     - name: pontoon_lower_twall
                       material: steel
@@ -674,13 +640,11 @@ components:
                 ballasts:
                     - variable_flag: True
                       grid: [0.0, 1.0]
-
             - name: Y_pontoon_lower2
               joint1: main_lower_pontoon
               joint2: col2_lower_pontoon
               outer_shape: *pontlow_out
               internal_structure: *pontlow_int
-
             - name: Y_pontoon_lower3
               joint1: main_lower_pontoon
               joint2: col3_lower_pontoon
@@ -734,10 +698,7 @@ components:
         line_types:
             - name: main
               diameter: 0.185
-              mass_density: 685.0
-              stiffness: 3270e6
-              breaking_load: 1e8
-              cost: 100.0
+              type: chain
               transverse_added_mass: 1.0
               tangential_added_mass: 0.0
               transverse_drag: 1.6
@@ -745,10 +706,7 @@ components:
 
         anchor_types:
             - name: drag_embedment
-              mass: 1e3
-              cost: 1e4
-              max_vertical_load: 0.0
-              max_lateral_load: 1e5
+              type: drag_embedment
 
 airfoils:
    -  name: circular

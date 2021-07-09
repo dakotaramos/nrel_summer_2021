@@ -1,7 +1,7 @@
 general:
     folder_output: outputs
     fname_output: refturb_output
-
+    
 design_variables:
     blade:
         aero_shape:
@@ -66,7 +66,7 @@ design_variables:
             upper_bound: 2.e-1
     floating:
         joints:
-            flag: False
+            flag: True
             z_coordinate:
                 - names: [col1_keel, col2_keel, col3_keel]
                   lower_bound: -25.0
@@ -99,10 +99,10 @@ design_variables:
                   ballast:
                       lower_bound: 1.0
                       upper_bound: 1e8
-                #   axial_joints:
-                #       - names: [col1_fairlead, col2_fairlead, col3_fairlead]
-                #         lower_bound: 0.0
-                #         upper_bound: 1.0
+                  axial_joints:
+                      - names: [col1_fairlead, col2_fairlead, col3_fairlead]
+                        lower_bound: 0.0
+                        upper_bound: 1.0
 
                 - names: [Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3]
                   diameter:
@@ -119,9 +119,9 @@ design_variables:
                   thickness:
                       lower_bound: 0.01
                       upper_bound: 0.2
-                #   ballast:
-                #       lower_bound: 1.0
-                #       upper_bound: 1e8
+                  ballast:
+                      lower_bound: 1.0
+                      upper_bound: 1e8
     mooring:
         line_length:
             flag: False
@@ -204,20 +204,20 @@ inverse_design:
     val0:
         name: floatingse.platform_hull_mass
         ref_value: 3.914e6
-    val1:
-        name: floatingse.variable_ballast_mass
-        ref_value: 1.13e7
-    val2:
-        name: floatingse.platform_center_of_buoyancy
-        ref_value: -13.63
-        idx: 2
-    val3:
-        name: floatingse.platform_center_of_mass
-        ref_value: -14.94
-        idx: 2
-    val4:
-        name: floatingse.platform_displacement
-        ref_value: 20206.00
+    # val1:
+    #     name: floatingse.variable_ballast_mass
+    #     ref_value: 1.13e7
+    # val2:
+    #     name: floatingse.platform_center_of_buoyancy
+    #     ref_value: -13.63
+    #     idx: 2
+    # val3:
+    #     name: floatingse.platform_center_of_mass
+    #     ref_value: -14.94
+    #     idx: 2
+    # val4:
+    #     name: floatingse.platform_displacement
+    #     ref_value: 20206.00
 
 constraints:
     blade:
@@ -335,11 +335,11 @@ constraints:
         shell_buckling:
             flag: False
         global_buckling:
-            flag: False
+            flag: True
 
 driver:
     optimization:
-        flag: False         # Flag to enable optimization
+        flag: True         # Flag to enable optimization
         tol: 1.e-4          # Optimality tolerance
         max_major_iter: 10  # Maximum number of major design iterations (SNOPT)
         max_minor_iter: 100 # Maximum number of minor design iterations (SNOPT)

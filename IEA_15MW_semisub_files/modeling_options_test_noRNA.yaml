@@ -3,11 +3,11 @@ General:
     verbosity: False  # When set to True, the code prints to screen many infos
 WISDEM:
     RotorSE:
-        flag: True
+        flag: False
         spar_cap_ss: Spar_Cap_SS
         spar_cap_ps: Spar_Cap_PS
     DriveSE:
-        flag: True
+        flag: False
     TowerSE:             # Options of TowerSE module
         flag: True
     FloatingSE:
@@ -19,4 +19,13 @@ WISDEM:
         gamma_b: 1.1     # Safety factor for ...
         gamma_fatigue: 1.755  # Safety factor for fatigue loads
     BOS:
-        flag: True
+        flag: False
+        
+    Loading:
+        mass: 956762.41365937
+        center_of_mass: [-6.55919605, -0.098772, 4.52551515]
+        moment_of_inertia: [3.84130521e+08, 2.59670608e+08, 2.41112120e+08, 7.86100051e+02, 1.43771857e+07, 1.70976443e+05]
+        loads:
+            - force: [3732455.03902768, 22583.93220077, -6907171.29266032]
+              moment: [-1112777.68087106, -11500138.21851768, 9547667.10956592]
+              velocity: 19.71393401

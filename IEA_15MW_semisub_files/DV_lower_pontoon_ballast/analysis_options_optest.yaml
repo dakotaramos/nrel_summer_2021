@@ -1,7 +1,7 @@
 general:
     folder_output: outputs
     fname_output: refturb_output
-
+    
 design_variables:
     blade:
         aero_shape:
@@ -67,61 +67,61 @@ design_variables:
     floating:
         joints:
             flag: False
-            z_coordinate:
-                - names: [col1_keel, col2_keel, col3_keel]
-                  lower_bound: -25.0
-                  upper_bound: -15.0
-                - names: [main_keel]
-                  lower_bound: -25.0
-                  upper_bound: -15.0
+            # z_coordinate:
+            #     - names: [col1_keel, col2_keel, col3_keel]
+            #       lower_bound: -25.0
+            #       upper_bound: -15.0
+            #     - names: [main_keel]
+            #       lower_bound: -25.0
+            #       upper_bound: -15.0
             r_coordinate:
                 - names: [col1_keel, col1_freeboard, col2_keel, col2_freeboard, col3_keel, col3_freeboard]
                   lower_bound: 45
                   upper_bound: 60
         members:
-            flag: False
+            flag: True
             groups:
-                - names: [main_column]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
+                # - names: [main_column]
+                #   diameter:
+                #       lower_bound: 5.0
+                #       upper_bound: 15.0
+                #   thickness:
+                #       lower_bound: 0.01
+                #       upper_bound: 0.2
 
-                - names: [column1, column2, column3]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-                  ballast:
-                      lower_bound: 1.0
-                      upper_bound: 1e8
+                # - names: [column1, column2, column3]
+                #   diameter:
+                #       lower_bound: 5.0
+                #       upper_bound: 15.0
+                #   thickness:
+                #       lower_bound: 0.01
+                #       upper_bound: 0.2
+                #   ballast:
+                #       lower_bound: 1.0
+                #       upper_bound: 1e8
                 #   axial_joints:
                 #       - names: [col1_fairlead, col2_fairlead, col3_fairlead]
                 #         lower_bound: 0.0
                 #         upper_bound: 1.0
 
-                - names: [Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3]
-                  diameter:
-                      lower_bound: 0.1
-                      upper_bound: 2
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
+                # - names: [Y_pontoon_upper1, Y_pontoon_upper2, Y_pontoon_upper3]
+                #   diameter:
+                #       lower_bound: 0.1
+                #       upper_bound: 2
+                #   thickness:
+                #       lower_bound: 0.01
+                #       upper_bound: 0.2
 
                 - names: [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
-                  diameter:
-                      lower_bound: 5.0
-                      upper_bound: 15.0
-                  thickness:
-                      lower_bound: 0.01
-                      upper_bound: 0.2
-                #   ballast:
-                #       lower_bound: 1.0
-                #       upper_bound: 1e8
+                #   diameter:
+                #       lower_bound: 5.0
+                #       upper_bound: 15.0
+                #   thickness:
+                #       lower_bound: 0.01
+                #       upper_bound: 0.2
+                  ballast:
+                      lower_bound: 1.0
+                      upper_bound: 1e8
     mooring:
         line_length:
             flag: False
@@ -201,23 +201,23 @@ design_variables:
 merit_figure: inverse_design
 
 inverse_design:
+    # val0:
+    #     name: floatingse.platform_hull_mass
+    #     ref_value: 3.914e6
     val0:
-        name: floatingse.platform_hull_mass
-        ref_value: 3.914e6
-    val1:
         name: floatingse.variable_ballast_mass
         ref_value: 1.13e7
-    val2:
-        name: floatingse.platform_center_of_buoyancy
-        ref_value: -13.63
-        idx: 2
-    val3:
-        name: floatingse.platform_center_of_mass
-        ref_value: -14.94
-        idx: 2
-    val4:
-        name: floatingse.platform_displacement
-        ref_value: 20206.00
+    # val2:
+    #     name: floatingse.platform_center_of_buoyancy
+    #     ref_value: -13.63
+    #     idx: 2
+    # val3:
+    #     name: floatingse.platform_center_of_mass
+    #     ref_value: -14.94
+    #     idx: 2
+    # val4:
+    #     name: floatingse.platform_displacement
+    #     ref_value: 20206.00
 
 constraints:
     blade:
@@ -339,7 +339,7 @@ constraints:
 
 driver:
     optimization:
-        flag: False         # Flag to enable optimization
+        flag: True         # Flag to enable optimization
         tol: 1.e-4          # Optimality tolerance
         max_major_iter: 10  # Maximum number of major design iterations (SNOPT)
         max_minor_iter: 100 # Maximum number of minor design iterations (SNOPT)

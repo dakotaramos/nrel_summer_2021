@@ -1,0 +1,45 @@
+
+ ==============================
+ S N O P T  7.2-12.2 (Jul 2013)
+ ==============================
+ 
+ SNMEMB EXIT 100 -- finished successfully
+ SNMEMB INFO 104 -- memory requirements estimated
+ 
+ 
+
+ Nonlinear constraints    1000     Linear constraints       0
+ Nonlinear variables         3     Linear variables         0
+ Jacobian  variables         3     Objective variables      3
+ Total constraints        1000     Total variables          3
+ 
+
+ 
+ The user has defined    3000   out of    3000   constraint gradients.
+ The user has defined       3   out of       3   objective  gradients.
+ 
+
+ XXX Singular basis after    40 factorization attempts
+ 
+ SNOPTC EXIT  40 -- terminated after numerical difficulties
+ SNOPTC INFO  42 -- singular basis
+
+ Problem name                 O
+ No. of iterations                   0   Objective value      5.8154508019E-05
+ No. of major iterations             0   Linear objective     0.0000000000E+00
+ Penalty parameter           0.000E+00   Nonlinear objective  5.8154508019E-05
+ No. of calls to funobj              1   No. of calls to funcon              1
+ No. of degenerate steps             0   Percentage                       0.00
+ Max x                       3 5.2E+01   Max pi                      1 0.0E+00
+ Max Primal infeas          47 1.0E+00   Max Dual infeas             1 1.2E-02
+ Nonlinear constraint violn    3.1E+16
+ 
+ 
+
+ Solution printed on file  18
+ 
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                       0.00 seconds
+ Time for solution output                       0.02 seconds
+ Time for constraint functions                  3.78 seconds
+ Time for objective function                    0.00 seconds
