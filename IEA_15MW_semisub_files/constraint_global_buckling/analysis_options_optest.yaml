@@ -119,9 +119,6 @@ design_variables:
                   thickness:
                       lower_bound: 0.01
                       upper_bound: 0.2
-                  ballast:
-                      lower_bound: 1.0
-                      upper_bound: 1e8
     mooring:
         line_length:
             flag: False

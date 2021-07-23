@@ -324,7 +324,6 @@ components:
                   fiber_orientation:
                       values: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
                       grid: [0.1, 0.125, 0.15, 0.1690340633511322, 0.18806812670226436, 0.20710219005339656, 0.22613625340452875, 0.24517031675566095, 0.2660887252285566, 0.2870071337014522, 0.30792554217434787, 0.3288439506472435, 0.350911029806978, 0.3729781089667125, 0.39504518812644707, 0.41711226728618156, 0.4391793464459161, 0.45887775857841995, 0.47857617071092373, 0.49827458284342757, 0.5179729949759314, 0.5376714071084352, 0.5577786570700229, 0.5778859070316106, 0.5979931569931983, 0.618100406954786, 0.6382076569163737, 0.657284256252832, 0.6763608555892903, 0.6954374549257486, 0.7145140542622068, 0.7335906535986652, 0.7526672529351234, 0.7717438522715817, 0.8, 0.8187500000000001, 0.8375, 0.85625, 0.875, 0.89375, 0.9125, 0.9312499999999999, 0.95]
-
     hub:
         diameter: 7.94
         cone_angle: 0.06981317007977318 # 4 deg
@@ -437,7 +436,6 @@ components:
             C_Fe: 0.556
             C_Fes: 0.50139
             C_PM: 50.0
-
     tower:
         outer_shape_bem:
             reference_axis: &ref_axis_tower
@@ -554,8 +552,6 @@ components:
                       material: slurry
                       volume: 169.333
                       grid: [0.0, 0.05]
-                    - variable_flag: True
-                      grid: [0.05, 0.5]
               axial_joints:
                 - name: col1_upper_pontoon
                   grid: 0.987
@@ -643,12 +639,12 @@ components:
                     - variable_flag: True
                       grid: [0.0, 1.0]
                 ring_stiffeners:
-                    - material: steel
-                      flange_thickness: 0.02
-                      flange_width: 0.1
-                      web_height: 0.1
-                      web_thickness: 0.04
-                      spacing: 0.1
+                    material: steel
+                    flange_thickness: 0.02
+                    flange_width: 0.1
+                    web_height: 0.1
+                    web_thickness: 0.04
+                    spacing: 0.5
             - name: Y_pontoon_lower2
               joint1: main_lower_pontoon
               joint2: col2_lower_pontoon
@@ -659,7 +655,6 @@ components:
               joint2: col3_lower_pontoon
               outer_shape: *pontlow_out
               internal_structure: *pontlow_int
-
     mooring:
         nodes:
             - name: line1_anchor
@@ -717,7 +712,6 @@ components:
         anchor_types:
             - name: drag_embedment
               type: drag_embedment
-
 
     # Old geometry schema for line_types and anchor_types
         # line_types:

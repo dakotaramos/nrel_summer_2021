@@ -113,15 +113,12 @@ design_variables:
                 #       upper_bound: 0.2
 
                 - names: [Y_pontoon_lower1, Y_pontoon_lower2, Y_pontoon_lower3]
-                #   diameter:
-                #       lower_bound: 5.0
-                #       upper_bound: 15.0
+                  diameter:
+                      lower_bound: 5.0
+                      upper_bound: 15.0
                 #   thickness:
                 #       lower_bound: 0.01
                 #       upper_bound: 0.2
-                  ballast:
-                      lower_bound: 1.0
-                      upper_bound: 1e8
     mooring:
         line_length:
             flag: False

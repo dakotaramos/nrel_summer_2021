@@ -19,3 +19,35 @@
  
 
  
+ The user has defined   31082   out of   31082   constraint gradients.
+ The user has defined      30   out of      30   objective  gradients.
+ 
+
+ Major Minors     Step   nCon Feasible  Optimal  MeritFunction    nS Penalty
+     0     58               1  7.1E+06  1.4E+00  3.6417503E+13                 r i
+     1     42  1.4E-01      2  7.2E+06  1.7E+00  3.1189729E+13               n rlit
+ 
+ SNOPTC EXIT  30 -- resource limit error
+ SNOPTC INFO  31 -- iteration limit reached
+
+ Problem name                 O
+ No. of iterations                 100   Objective value      8.6892135403E+00
+ No. of infeasibilities             22   Sum of infeas        2.6840530431E+08
+ Elastic weight                1.2E+05   Scaled Merit         2.6840530556E+08
+ No. of major iterations             1   Linear objective     0.0000000000E+00
+ Penalty parameter           0.000E+00   Nonlinear objective  8.6892135403E+00
+ No. of calls to funobj              2   No. of calls to funcon              2
+ No. of degenerate steps             3   Percentage                       3.00
+ Max x                       3 5.3E+01   Max pi                     57 1.2E+05
+ Max Primal infeas         114 2.5E+08   Max Dual infeas            19 3.9E+05
+ Nonlinear constraint violn    3.0E+08
+ 
+ 
+
+ Solution printed on file  18
+ 
+ Time for MPS input                             0.00 seconds
+ Time for solving problem                      40.31 seconds
+ Time for solution output                       0.02 seconds
+ Time for constraint functions                 82.14 seconds
+ Time for objective function                    0.00 seconds

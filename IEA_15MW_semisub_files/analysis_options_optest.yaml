@@ -79,7 +79,7 @@ design_variables:
                   lower_bound: 45
                   upper_bound: 60
         members:
-            flag: True
+            flag: False
             groups:
                 - names: [main_column]
                   diameter:
@@ -119,9 +119,6 @@ design_variables:
                   thickness:
                       lower_bound: 0.01
                       upper_bound: 0.2
-                #   ballast:
-                #       lower_bound: 1.0
-                #       upper_bound: 1e8
     mooring:
         line_length:
             flag: False
@@ -201,23 +198,33 @@ design_variables:
 merit_figure: inverse_design
 
 inverse_design:
-    val0:
-        name: floatingse.platform_hull_mass
+    # floatingse.platform_mass:
+    #     ref_value:
+    #     units: kg
+    floatingse.platform_hull_mass:
         ref_value: 3.914e6
-    val1:
-        name: floatingse.variable_ballast_mass
-        ref_value: 1.13e7
-    val2:
-        name: floatingse.platform_center_of_buoyancy
-        ref_value: -13.63
-        idx: 2
-    val3:
-        name: floatingse.platform_center_of_mass
-        ref_value: -14.94
-        idx: 2
-    val4:
-        name: floatingse.platform_displacement
-        ref_value: 20206.00
+        units: kg
+    # floatingse.platform_ballast_mass:
+    #     ref_value: 2.54E+06
+    #     units: kg
+    # floatingse.variable_ballast_mass:
+    #     ref_value: 1.13E+07
+    #     units: kg
+    # floatingse.platform_center_of_mass:
+    #     ref_value: -14.94
+    #     indices: [2]
+    #     units: m
+    # floatingse.platform_center_of_buoyancy:
+    #     ref_value: -13.63
+    #     indices: [2]
+    #     units: m
+    # floatingse.platform_I_total:
+    #     ref_value: [1.251E+10, 1.251E+10, 2.367E+10]
+    #     indices: [0,1,2]
+    #     units: kg*m**2
+    # floatingse.platform_displacement:
+    #     ref_value: 20206.00
+    #     units: m**3
 
 constraints:
     blade:
@@ -323,13 +330,13 @@ constraints:
         fairlead_depth:
             flag: True
         mooring_surge:
-            flag: True
+            flag: False
         mooring_heel:
-            flag: True
+            flag: False
         mooring_tension:
-            flag: True
+            flag: False
         mooring_length:
-            flag: True
+            flag: False
         stress:
             flag: False
         shell_buckling:

@@ -2,6 +2,7 @@
 import pickle
 import numpy as np
 import pprint
+import openpyxl
 
 
 # open pickle file
@@ -86,9 +87,36 @@ diff_data = {
     'diff_platform_CM' : (ref_data['ref_platform_CM']- output_data['floatingse.platform_center_of_mass']),
     'diff_platform_CB' : (ref_data['ref_platform_CB'] - output_data['floatingse.platform_center_of_buoyancy']),
     'diff_platform_I_total' : (ref_data['ref_platform_I_total'] - output_data['floatingse.platform_I_total']),
+    'diff_platform_displacement' : (ref_data['ref_platform_displacement'] - output_data['floatingse.platform_displacement'])
     }
 
 pprint.pprint(diff_data)
+
+
+# output data to excelworksheet
+file = 'C:\Users\dpotere\Documents\git\nrel_summer_2021\IEA_15MW_semisub_files\IEA_15MW_semisub_output_comparisons.xlsx'
+new_row = [
+    output_data['floatingse.platform_mass'],
+    None,
+    output_data['floatingse.platform_hull_mass'],
+    output_data['floatingse.platform_ballast_mass'],
+    output_data['floatingse.variable_ballast_mass'],
+    output_data['floatingse.platform_center_of_buoyancy'],
+    output_data['floatingse.platform_center_of_mass'],
+    output_data['floatingse.platform_displacement'],
+    output_data['floatingse.platform_I_total'][0],
+    output_data['floatingse.platform_I_total'][1],
+    output_data['floatingse.platform_I_total'][2]
+    ]
+
+wb = openpyxl.load_workbook(filename=file)
+ws = wb['fixed_ballast']
+row = ws.get_highest_row() + 1
+
+for col, entry in enumerate(new_row, start=1):
+    ws.cell(row=row, column=col, value=entry)
+
+wb.save(file)
 
 # set up plotting script for data we want to visualize
 
